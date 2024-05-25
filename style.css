@@ -1,0 +1,689 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body{
+  font-family: "Roboto", sans-serif;
+}
+
+/* body{
+  overflow: hidden;
+} */
+
+h1,
+section,
+p,
+span,
+svg{
+  transition: background-color 0.5s, color 0.5s;
+}
+
+:root{
+  /* Light Theme Variables */
+  --color-text-light: #333332;
+  --color-background-light: #FAF4E5;
+  --color-pink-light: #e5a1aa;
+  --color-green-light: #7AD0AC;
+  --color-blue-light: #8395CD;
+
+  /* Dark Theme Variables */
+  --color-text-dark: #FAF4E5;
+  --color-background-dark: #8395CD;
+}
+
+.light-theme{
+  --color-text: var(--color-text-light);
+  --color-background: var(--color-background-light);
+  --color-pink: var(--color-pink-light);
+  --color-green: var(--color-green-light);
+  --color-blue: var(--color-blue-light);
+}
+
+.dark-theme{
+  --color-text: var(--color-text-dark);
+  --color-background: var(--color-background-dark);
+  --color-pink: var(--color-text-dark);
+  --color-green: var(--color-text-dark);
+  --color-blue: var(--color-text-dark);
+}
+
+/* Experience --------------------------------------------- */
+
+.experience{
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+}
+
+.experience-canvas{
+  width: 100%;
+  height: 100%;
+}
+
+.hidden{
+  display: none;
+}
+
+/* Preloader */
+.preloader{
+  background-color: var(--color-background-light);
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  opacity: 1;
+  z-index: 99999999999999999;
+}
+
+.preloader-wrapper{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.loading{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.circle{
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin: 6px;
+  background-color: var(--color-pink-light);
+  animation: load 1s ease-in-out infinite;
+}
+
+.circle:nth-child(2){
+  animation-delay: 0.1s;
+}
+
+.circle:nth-child(3){
+  animation-delay: 0.2s;
+}
+
+@keyframes load {
+  0% {
+    transform: translateY(0)
+  }
+
+  20% {
+    transform: translateY(-12px)
+  }
+
+  40% {
+    transform: translateY(0)
+  }
+  
+}
+
+/* Page Itself --------------------------------------------- */
+.page{
+  z-index:99999;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.page-wrapper{
+  position: relative;
+}
+
+/* Preloader Stuff */
+.animatedis{
+  display: inline-block;
+  transform: translateY(100%);
+}
+
+.intro-text{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-weight: 500;
+  font-size: 16px;
+  color: var(--color-text);
+  transform: translate(-50%, -50%);
+}
+
+.arrow-svg-wrapper{
+  position: absolute;
+  top: 90%;
+  left: 50%;
+  opacity: 0;
+  color: var(--color-text);
+  transform: translate(-50%, -50%);
+  animation: bounce 0.5s ease-in alternate infinite;
+}
+
+@keyframes bounce {
+  0%{
+    transform: translateY(0)
+  }
+
+  100%{
+    transform: translateY(8px)
+  }
+}
+
+/* Toggle Bar --------------------------------------------- */
+.toggle-bar{
+  position: fixed;
+  display: flex;
+  opacity: 0;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  top: 48px;
+  right: 48px;
+  z-index: 99999999999999;
+}
+
+.sun-wrapper, 
+.moon-wrapper{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  color: var(--color-text);
+}
+
+.toggle-button{
+  cursor: pointer;
+  position: relative;
+  width: 56px;
+  height: 28px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-pink);
+  border-radius: 999px;
+  margin: 0px 16px;
+  border: none;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.toggle-circle{
+  position: absolute;
+  left: 6px;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  background-color: var(--color-background);
+  transition: all 0.2s ease-in-out;
+}
+
+.toggle-button:hover .toggle-circle{
+  transform: scale(0.9);
+}
+
+.slide{
+  left: 31px;
+}
+
+/* Section Formatting --------------------------------------------- */
+.section-margin{
+  height: 3000px;
+  width: 100%;
+}
+
+.section{
+  position: relative;
+  width: 50%;
+  padding: 1000px 4%;
+  margin: 0;
+  background-color: var(--color-background);
+  overflow: hidden;
+}
+
+.left{
+  margin-right: auto;
+  border-top-right-radius: 700px 700px;
+  border-bottom-right-radius: 0px 0px;
+}
+
+.right{
+  margin-left: auto;
+  border-top-left-radius: 700px 700px;
+  border-bottom-left-radius: 0px 0px;
+}
+
+/* Progress bars */
+.progress-wrapper{
+  height: 0;
+  width: 12px;
+  z-index: 9999;
+}
+
+.progress-bar-wrapper-left{
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.progress-bar-wrapper-right{
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.progress-bar{
+  height: 100vh;
+  width: 100%;
+  background-color: var(--color-pink);
+  transform-origin: top center;
+  transform: scaleY(1);
+}
+
+/* Sections -------------- */
+
+.section-intro-wrapper{
+  position: relative;
+  padding: 20% 5%;
+  border-bottom: 2px solid var(--color-pink);
+  padding-bottom: 400px;
+}
+
+.section-intro-wrapper:nth-child(3){
+  border-bottom: 2px solid var(--color-green);
+}
+
+.section-detail-wrapper{
+  position: relative;
+  padding: 20% 5%;
+}
+
+.section-heading{
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.8;
+  margin-top: 64px;
+  color: var(--color-text);
+}
+
+.section-text{
+  line-height: 2;
+  margin-top: 18px;
+  font-size: 16px;
+  color: var(--color-text);
+}
+
+/* Fancy Decoration Part of Section */
+.section-title{
+  position: relative;
+  color: var(--color-pink)
+}
+
+.section-title-text{
+  display: block;
+  font-size: 40px;
+  font-weight: 500;
+  transform-origin: left;
+  transform: skewY(25deg);
+  z-index: 5;
+  text-transform: uppercase;
+  color: var(--color-pink);
+}
+
+.styleOne,
+.styleTwo,
+.styleThree{
+  position: absolute;
+  display: block;
+  width: 100%;
+  max-width: 278px;
+  height: 60px;
+  border: 1px solid var(--color-pink);
+  transform-origin: left;
+  transform: skewY(-25deg);
+}
+
+.styleOne{
+  top: 0px;
+}
+
+.styleTwo{
+  top: 80px;
+}
+
+.styleThree{
+  top: 80px;
+  transform: skewY(25deg);
+  background-color: var(--color-pink);
+}
+
+.section-number{
+  position: absolute;
+  bottom: 15px;
+  right: 0;
+  color: var(--color-pink);
+  font-size: 24px;
+}
+
+
+/* Hero section -------------------------------- */
+
+.hero{
+  width: 100vw;
+  height: 100vh;
+}
+
+.hero-wrapper{
+  position: relative;
+  height: 100%;
+  width: 100%;
+  margin: 0 auto;
+  max-width: 1100px;
+}
+
+.hero-main{
+  position: absolute;
+  bottom: 168px;
+  left: 0;
+  color: var(--color-text);
+}
+
+.hero-second{
+  position: absolute;
+  top: calc(50% - 120px);
+  right: 0;
+  color: var(--color-text);
+}
+
+.hero-main-title{
+  font-size: 64px;
+  color: var(--color-text);
+}
+
+.hero-main-description{
+  font-size: 18px;
+  color: var(--color-text);
+}
+
+.hero-second-subheading{
+  font-size: 32px;
+  text-transform: uppercase;
+  color: var(--color-text);
+}
+
+
+/* Other colors override */
+
+.blue-text{
+  color: var(--color-blue)
+}
+
+.blue-border{
+  border-color: var(--color-blue);
+}
+
+.blue-background{
+  background-color: var(--color-blue);
+}
+
+.green-text{
+  color: var(--color-green)
+}
+
+.green-border{
+  border-color: var(--color-green);
+}
+
+.green-background{
+  background-color: var(--color-green);
+}
+
+
+/* Media Queries */
+
+@media (max-width: 968px){
+  .section{
+    width: 100%;
+  }
+  .progress-bar-wrapper-left{
+    right: 0;
+    left: auto;
+  }
+  .hero-main{
+    bottom: 120px;
+  }
+  .hero-second{
+    top: 160px;
+  }
+  .hero-wrapper{
+    width: calc(100% - 60px);
+  }
+  .hero-main-title{
+    font-size: 32px;
+  }
+  .hero-main-description{
+    font-size: 18px;
+  }
+  .hero-second-subheading{
+    font-size: 18px;
+  }
+}
+
+/*Style Projects & Work*/
+
+.project-card {
+  border: 1px solid #ccc; /* Bordure grise */
+  border-radius: 3px; /* Coins arrondis */
+  margin-bottom: 20px; /* Marge en bas pour l'espace entre les projets */
+  cursor: pointer; /* Curseur de la souris en pointeur */
+  transition: transform 0.3s ease; /* Animation de transition pour l'effet d'agrandissement */
+  overflow: hidden; /* Empêche le contenu de déborder de la carte */
+  width: 250px; /* Largeur fixe pour la carte */
+}
+
+.project-card:hover {
+  border-color: #fd00db; /* Bordure bleue au survol */
+}
+
+.project-card:hover .project-image {
+  transform: scale(0.95); /* Réduction de la taille de l'image au survol */
+}
+
+.project-image {
+  width: 100%; /* Image prend toute la largeur de la carte */
+  height: auto; /* Hauteur automatique pour conserver les proportions */
+  border-radius: 3px; /* Coins arrondis pour l'image */
+  transition: transform 0.3s ease; /* Animation de transition pour l'effet d'agrandissement de l'image */
+}
+
+.project-details {
+  padding: 10px; /* Remplissage à l'intérieur des détails du projet */
+  background-color: #f9f9f9; /* Fond gris clair */
+  border-top: 1px solid #ccc; /* Bordure supérieure grise */
+  display: none; /* Les détails du projet sont initialement masqués */
+}
+
+.project-card.active .project-details {
+  display: block; /* Affichage des détails du projet actif */
+}
+
+
+/* skills style*/
+.skills-section {
+  padding: 60px 20px;
+}
+
+.skills-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.skill-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  transition: transform 0.3s;
+}
+
+.skill-card:hover {
+  transform: scale(1.1);
+}
+
+.skill-logo {
+  width: 60px;
+  height: 60px;
+}
+
+.skill-card p {
+  margin-top: 10px;
+  font-size: 1rem;
+  text-align: center;
+}
+.pink-border {
+  border: 2px solid pink; /* Définit une bordure rose */
+}
+
+
+
+/*style pour contact*/
+
+.contact-form-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 20px;
+}
+
+.contact-form {
+  width: 100%;
+  max-width: 600px;
+  background: #f9f9f9;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #b33f6c;
+}
+
+.submit-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background: #b33f6c;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.submit-button:hover {
+  background: #b33f6c;
+}
+
+.contact-icons {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.contact-icons a {
+  color: #b33f6c;
+  font-size: 24px;
+  margin: 0 10px;
+  transition: color 0.3s ease;
+}
+
+.contact-icons a:hover {
+  color: #b33f6c;
+}
+
+ /* Avatar*/
+
+
+ .model-viewer-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+model-viewer {
+  width: 400px;
+  height: 300px;
+}
+
+/* Button CV */
+.cv-button {
+  display: block; /* Pour que margin: 0 auto fonctionne */
+  padding: 10px 20px;
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+  background-color: pink;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+  width: 200px; /* Définir une largeur fixe */
+  max-width: 100%; /* Permettre au bouton de s'adapter aux petites écrans */
+  margin: 20px auto; /* Centrer le bouton et ajouter une marge verticale */
+  text-align: center; /* Centrer le texte à l'intérieur du bouton */
+}
+
+.cv-button:hover {
+  background-color: hotpink;
+}
+/*logo*/
+        .logo {
+          position: absolute;
+          top: 20px;
+          left: 20px;
+          /* Assurez-vous que l'image ne dépasse pas du conteneur */
+           width: auto;
+           height: 100%; /* Ajustez selon la taille du cercle noir */
+    
+    /* Appliquez un border-radius pour faire un cercle */
+           border-radius: 50%;
+    
+    /* Optionnel : Si vous devez ajuster la position de l'image */
+           object-fit: cover;
+
+        }
+      
+        .logo img {
+          width: 100px; /* Ajustez la taille du logo selon vos besoins */
+          height: auto;
+        }
